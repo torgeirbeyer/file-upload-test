@@ -9,7 +9,16 @@ const upload = multer({ dest: './public/uploads/' });
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  Picture.find({}, (err, pictures) => {
+    if (err) {
+      next(err)
+    } else {
+      const data = {
+        pictures: pictures
+      }
+      res.render('index', data);
+    }
+  })
 });
 
 // POST file upload
