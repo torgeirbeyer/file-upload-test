@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -13,7 +14,7 @@ const users = require('./routes/users');
 const app = express();
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/file-upload-test", {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
   useMongoClient: true
