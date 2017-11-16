@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# my own folders
+public/uploads/
+
